@@ -3235,11 +3235,17 @@ input, select, textarea {
         top: 0 !important;
         padding: 5em 2em !important;
         text-align: center !important;
+		display: block !important;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../images/overlay.png"), url("../../images/bg.jpg") !important;
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
     }
 
     #header .inner {
         max-width: 100% !important;
         text-align: center !important;
+		position: relative !important;
     }
 
     /* Force the avatar and your name to sit centered horizontally */
@@ -3255,6 +3261,8 @@ input, select, textarea {
         width: 100% !important;
 		max-width: 100% !important;
         padding: 4em 4em !important;
+		display: block !important;
+        position: relative !important;
     }
 
 	/* Make the inner sections fill out nicely too */
@@ -3266,12 +3274,13 @@ input, select, textarea {
     /* Pull the footer out of the left column and drop it to the absolute bottom of the page */
     #footer {
         position: relative !important;
+		clear: both !important;
         width: 100% !important;
         left: 0 !important;
         bottom: 0 !important;
-        margin-left: 0 !important;
+        margin: 4em 0 0 0 !important;
         padding: 4em 2em !important;
-        background: #1f1f1f !important; /* Gives the footer a distinct dark background block at the bottom */
+        background: #1c1c1c !important; /* Gives the footer a distinct dark background block at the bottom */
         text-align: center !important;
 		display: block !important;
     }
