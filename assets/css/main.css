@@ -3236,7 +3236,7 @@ input, select, textarea {
         padding: 5em 2em !important;
         text-align: center !important;
 		display: block !important;
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../images/overlay.png"), url("../../images/bg.jpg") !important;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../../images/overlay.png"), url("../../images/hdbg.jpg") !important;
         background-attachment: scroll !important;
         background-size: cover !important;
         background-position: center !important;
@@ -3278,7 +3278,7 @@ input, select, textarea {
         width: 100% !important;
         left: 0 !important;
         bottom: 0 !important;
-        margin: 4em 0 0 0 !important;
+		margin: 4em 0 0 0 !important;
         padding: 4em 2em !important;
         background: #1c1c1c !important; /* Gives the footer a distinct dark background block at the bottom */
         text-align: center !important;
