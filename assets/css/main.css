@@ -3284,3 +3284,24 @@ input, select, textarea {
     	margin-bottom: 1em;
 	}
 }
+
+/* 1. Reset the layout so sections never stack or overlap side-by-side */
+.portfolio-section {
+    clear: both;          /* This stops the previous image from bleeding into this section */
+    padding-top: 2rem;    /* Gives breathing room at the top of the section */
+    padding-bottom: 2rem; /* Gives breathing room at the bottom */
+    margin-bottom: 1rem;  /* Adds spacing between sections */
+}
+
+/* 2. Shrink the images inside these portfolio sections */
+.portfolio-section .image.left,
+.portfolio-section .image.right {
+    max-width: 250px !important; /* Forces the image container to be smaller */
+    width: 100%;
+}
+
+.portfolio-section .image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
