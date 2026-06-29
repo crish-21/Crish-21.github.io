@@ -3291,17 +3291,35 @@ input, select, textarea {
     padding-top: 2rem;    /* Gives breathing room at the top of the section */
     padding-bottom: 2rem; /* Gives breathing room at the bottom */
     margin-bottom: 1rem;  /* Adds spacing between sections */
+	width: 100%;          /* Ensures the section takes full width */
 }
 
 /* 2. Shrink the images inside these portfolio sections */
 .portfolio-section .image.left,
 .portfolio-section .image.right {
-    max-width: 250px !important; /* Forces the image container to be smaller */
+	float: none !important; /* Removes the float to prevent side-by-side layout */
+    display: block !important; /* image behaves like a block */
+	max-width: 100% !important; 
     width: 100%;
+	margin: 0 auto 2rem auto; /* Centers the image and adds space below */
 }
 
 .portfolio-section .image img {
-    width: 100%;
-    height: auto;
-    display: block;
+    width: 100%; /*Image is stretched across the page */ 
+    height: auto; /* for maintaining aspect ratio */
+    max-height: 400px; /* so that it is not too tall */
+	object-fit: cover; /* if the image is too tall, crops it */
+	border-radius: 6px;
+}
+
+.portfolio-section ul,
+.portfolio-section p {
+	clear: both;
+	width: 100% !important;
+	display: block;
+}
+
+.portfolio-section li {
+	margin-bottom: 12px;
+	line-height: 1.6;
 }
