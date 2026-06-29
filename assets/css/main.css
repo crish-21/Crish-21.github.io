@@ -3295,8 +3295,7 @@ input, select, textarea {
 }
 
 /* 2. Shrink the images inside these portfolio sections */
-.portfolio-section .image.left,
-.portfolio-section .image.right {
+.portfolio-section .image.centre {
 	float: none !important; /* Removes the float to prevent side-by-side layout */
     display: block !important; /* image behaves like a block */
 	max-width: 600px !important; /*limits the size of the image on big screens */
@@ -3312,7 +3311,6 @@ input, select, textarea {
 	object-fit: contain; /* no cropping of the image */
 	border-radius: 6px;
 }
-
 /* Force the text content div to break clean and span the entire width */
 .portfolio-section .content,
 .portfolio-section div:not(.image) {
@@ -3343,4 +3341,18 @@ input, select, textarea {
     float: none !important;
     clear: both !important;
     margin-bottom: 12px;
+}
+
+/* 1. Shrink the outer container box for just this one image */
+.portfolio-section .image.small-image {
+    max-width: 350px !important; /* Set this to whatever small width you want */
+    width: 100%;
+    margin: 0 auto 2rem auto;    /* Keeps it centered with nice spacing below */
+}
+
+/* 2. Tell the image inside it to fit perfectly within that smaller box */
+.portfolio-section .image.small-image img {
+    width: 100%;                 /* Scales down to fill the 350px container */
+    height: auto;                /* Perfectly locks in the aspect ratio shape */
+    object-fit: contain;         /* Ensures the whole image stays completely visible */
 }
