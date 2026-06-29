@@ -3299,16 +3299,17 @@ input, select, textarea {
 .portfolio-section .image.right {
 	float: none !important; /* Removes the float to prevent side-by-side layout */
     display: block !important; /* image behaves like a block */
-	max-width: 100% !important; 
+	max-width: 600px !important; /*limits the size of the image on big screens */
     width: 100%;
 	margin: 0 auto 2rem auto; /* Centers the image and adds space below */
+	text-align: center;
 }
 
 .portfolio-section .image img {
     width: 100%; /*Image is stretched across the page */ 
     height: auto; /* for maintaining aspect ratio */
-    max-height: 400px; /* so that it is not too tall */
-	object-fit: cover; /* if the image is too tall, crops it */
+    max-height: 70vh; /* scales the height proportional to the aspect ratio */
+	object-fit: contain; /* no cropping of the image */
 	border-radius: 6px;
 }
 
