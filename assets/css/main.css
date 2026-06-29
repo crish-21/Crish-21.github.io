@@ -3312,14 +3312,34 @@ input, select, textarea {
 	border-radius: 6px;
 }
 
-.portfolio-section ul,
-.portfolio-section p {
-	clear: both;
-	width: 100% !important;
-	display: block;
+/* Force the text content div to break clean and span the entire width */
+.portfolio-section .content,
+.portfolio-section div:not(.image) {
+    display: block !important;
+    width: 100% !important;
+    clear: both !important;
+    float: none !important;
 }
 
+/* Force standard lists, bullet containers, and paragraphs to occupy the full page width */
+.portfolio-section p,
+.portfolio-section ul,
+.portfolio-section ol {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    clear: both !important;
+    float: none !important;
+    padding-left: 20px !important; /* Retains clean bullet alignment */
+    margin-left: 0 !important;     /* Removes any residual left margin pushing it into a column */
+}
+
+/* Ensure individual list items break line constraints and expand horizontally */
 .portfolio-section li {
-	margin-bottom: 12px;
-	line-height: 1.6;
+    display: list-item !important; /* Keeps bullet points active */
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    clear: both !important;
+    margin-bottom: 12px;
 }
