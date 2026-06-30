@@ -3377,9 +3377,9 @@ input, select, textarea {
 
 /* Container to center and handle the video sizing */
 .local-video-wrapper { /*mobile first, centres the video*/
-    width: 100%;                  /* Forces it to expand to match your page alignment */
+    width: 100%;   
+	max-width: 600px;               /* Forces it to expand to match your page alignment */
     margin: 0 auto 2rem auto;     /* Centers it horizontally and adds space below */
-    clear: both !important;        /* Prevents side-by-side float overlaps */
 	display: flex;
 	justify-content: center;
 	box-sizing: border-box;
