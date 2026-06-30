@@ -3375,11 +3375,101 @@ input, select, textarea {
     display: block;
 }
 
-/* Center and scale the Canva embed container smoothly across the page */
-.canva-embed-wrapper {
-    max-width: 800px !important; /* Caps the maximum slide width on wide screens */
-    width: 100% !important;      /* Ensures it shrinks cleanly on mobile devices */
-    margin-left: auto !important;  /* Centers it on the page */
-    margin-right: auto !important; /* Centers it on the page */
-    clear: both !important;        /* Prevents layout overlaps from preceding sections */
+/* Container to center and handle the video sizing */
+.local-video-wrapper {
+    width: 100%;                  /* Forces it to expand to match your page alignment */
+    max-width: 800px;             /* Caps the size so it doesn't get massive on desktop */
+    margin: 0 auto 2rem auto;     /* Centers it horizontally and adds space below */
+    clear: both !important;        /* Prevents side-by-side float overlaps */
+}
+
+/* Force the actual video element to scale perfectly */
+.local-video-wrapper video {
+    width: 100%;                  /* Fills the 800px width dynamically */
+    height: auto;                 /* Keeps the true widescreen aspect ratio shape */
+    display: block;
+    border-radius: 8px;           /* Modern rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds premium floating depth */
+}
+
+/* Layout section at the bottom */
+.portfolio-carousel-section {
+    width: 100%;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee; /* Creates a clean section break line */
+    clear: both;
+}
+
+/* Outer boundary window wrapper */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Adjust to match your container's grid max width */
+    margin: 0 auto;
+    overflow: hidden;  /* Crops out the elements positioned off-screen */
+    padding: 0 40px;   /* Creates safety padding so side arrows don't clip text */
+    box-sizing: border-box;
+}
+
+/* The actual scrolling moving belt strip */
+.carousel-track {
+    display: flex;
+    gap: 20px;         /* Uniform space gap between presentation columns */
+    transition: transform 0.4s ease-in-out; /* Makes slide transitions look buttery smooth */
+    scroll-behavior: smooth;
+}
+
+/* Individual Slide Sizing */
+.carousel-item {
+    /* calculation means: 3 presentation cards fit on the screen at a time */
+    flex: 0 0 calc(33.333% - 14px); 
+    min-width: 280px;  /* Prevents total distortion on mobile layouts */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.carousel-item h3 {
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Navigation Arrow Settings */
+.carousel-btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+/* Responsive Media Query for smaller screens/laptops */
+@media (max-width: 900px) {
+    .carousel-item {
+        flex: 0 0 calc(50% - 10px); /* Drops smoothly down to showing 2 at a time */
+    }
+}
+@media (max-width: 600px) {
+    .carousel-item {
+        flex: 0 0 100%; /* Mobile layout shows exactly 1 at a time full-width */
+    }
 }

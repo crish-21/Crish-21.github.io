@@ -114,4 +114,31 @@
 
 			});*/
 
+	// for the carousel animation
+    let currentPosition = 0;
+
+    function moveSlide(direction) {
+        const track = document.getElementById('carouselTrack');
+        const items = document.querySelectorAll('.carousel-item');
+        const itemWidth = items[0].getBoundingClientRect().width + 20; // card size + flex gap space
+        const visibleWidth = document.querySelector('.carousel-container').offsetWidth - 80;
+        const totalWidth = itemWidth * items.length;
+        
+        // Calculate max scroll displacement boundary
+        const maxScroll = -(totalWidth - visibleWidth - 20);
+
+        // Update tracking calculation index position 
+        currentPosition += (direction * -itemWidth);
+
+        // Clamp tracking indices so they don't slide off into empty blank space
+        if (currentPosition > 0) {
+            currentPosition = 0; // Lock to beginning
+        } else if (currentPosition < maxScroll) {
+            currentPosition = maxScroll; // Lock to end item card boundary
+        }
+
+        // Apply physical transform manipulation offset 
+        track.style.transform = `translateX(${currentPosition}px)`;
+    }
+
 })(jQuery);
