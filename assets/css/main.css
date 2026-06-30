@@ -3420,9 +3420,11 @@ input, select, textarea {
 /* The actual scrolling moving belt strip */
 .carousel-track {
     display: flex;
-    gap: 20px;         /* Uniform space gap between presentation columns */
+    gap: 20px; 
+	width: max-content;        /* Uniform space gap between presentation columns */
     transition: transform 0.4s ease-in-out; /* Makes slide transitions look buttery smooth */
     scroll-behavior: smooth;
+	will-change: transform; 
 }
 
 
@@ -3450,6 +3452,7 @@ input, select, textarea {
     background: rgba(0, 0, 0, 0.6);
     color: white;
     border: none;
+	border-radius: 50%;
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -3466,8 +3469,8 @@ input, select, textarea {
     background: rgba(0, 0, 0, 0.8);
 }
 
-.prev-btn { left: 0; }
-.next-btn { right: 0; }
+.prev-btn { left: 5px; }
+.next-btn { right: 5px; }
 
 /* Responsive Media Query for smaller screens/laptops */
 @media (max-width: 900px) {
