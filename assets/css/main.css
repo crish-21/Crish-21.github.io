@@ -3287,7 +3287,7 @@ input, select, textarea {
 
 /* 1. Reset the layout so sections never stack or overlap side-by-side */
 .portfolio-section {
-    clear: both;          /* This stops the previous image from bleeding into this section */
+    /*clear: both;        /* This stops the previous image from bleeding into this section */
     padding-top: 2rem;    /* Gives breathing room at the top of the section */
     padding-bottom: 2rem; /* Gives breathing room at the bottom */
     margin-bottom: 1rem;  /* Adds spacing between sections */
@@ -3316,7 +3316,7 @@ input, select, textarea {
 .portfolio-section div:not(.image) {
     display: block !important;
     width: 100% !important;
-    clear: both; /*!important;*/
+    /*clear: both; !important;*/
     float: none !important;
 }
 
@@ -3327,7 +3327,7 @@ input, select, textarea {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    clear: both; /*!important;*/
+    /*clear: both; !important;*/
     float: none !important;
     padding-left: 20px !important; /* Retains clean bullet alignment */
     margin-left: 0 !important;     /* Removes any residual left margin pushing it into a column */
@@ -3339,7 +3339,7 @@ input, select, textarea {
     width: 100% !important;
     max-width: 100% !important;
     float: none !important;
-    clear: both; /*!important;*/
+    /*clear: both; !important;*/
     margin-bottom: 12px;
 }
 
@@ -3408,7 +3408,7 @@ input, select, textarea {
     margin-top: 4rem;
     padding-top: 2rem;
     border-top: 1px solid #eee; /* Creates a clean section break line */
-    clear: both;
+    /*clear: both;*/
 }
 
 /* Outer boundary window wrapper */
