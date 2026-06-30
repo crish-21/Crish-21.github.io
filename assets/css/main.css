@@ -3316,7 +3316,7 @@ input, select, textarea {
 .portfolio-section div:not(.image) {
     display: block !important;
     width: 100% !important;
-    clear: both !important;
+    clear: both; /*!important;*/
     float: none !important;
 }
 
@@ -3327,7 +3327,7 @@ input, select, textarea {
     display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    clear: both !important;
+    clear: both; /*!important;*/
     float: none !important;
     padding-left: 20px !important; /* Retains clean bullet alignment */
     margin-left: 0 !important;     /* Removes any residual left margin pushing it into a column */
@@ -3339,7 +3339,7 @@ input, select, textarea {
     width: 100% !important;
     max-width: 100% !important;
     float: none !important;
-    clear: both !important;
+    clear: both; /*!important;*/
     margin-bottom: 12px;
 }
 
@@ -3401,6 +3401,7 @@ input, select, textarea {
 	border-radius: 8px;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 /* Layout section at the bottom */
 .portfolio-carousel-section {
     width: 100%;
