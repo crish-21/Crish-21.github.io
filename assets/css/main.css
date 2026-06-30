@@ -3376,9 +3376,8 @@ input, select, textarea {
 }
 
 /* Container to center and handle the video sizing */
-.local-video-wrapper {
+.local-video-wrapper { /*mobile first, centres the video*/
     width: 100%;                  /* Forces it to expand to match your page alignment */
-    max-width: 800px;             /* Caps the size so it doesn't get massive on desktop */
     margin: 0 auto 2rem auto;     /* Centers it horizontally and adds space below */
     clear: both !important;        /* Prevents side-by-side float overlaps */
 	display: flex;
@@ -3390,13 +3389,25 @@ input, select, textarea {
 /* Force the actual video element to scale perfectly */
 .local-video-wrapper video {
     width: 100%; 
-	max-width: 100%;                 /* Fills the 800px width dynamically */
+	max-width: 800px;                 /* Fills the 800px width dynamically */
     height: auto;                 /* Keeps the true widescreen aspect ratio shape */
     display: block;
     border-radius: 8px;           /* Modern rounded corners */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds premium floating depth */
 }
 
+@media screen and (min-width: 800px){
+	.local-video-wrapper {
+		float: right; 
+		width: 40%;
+		margin: 0 0 1rem 2rem;
+		display: block;
+	}
+
+	.local-video-wrapper video {
+		max-width: 100%;
+	}
+}
 /* Layout section at the bottom */
 .portfolio-carousel-section {
     width: 100%;
