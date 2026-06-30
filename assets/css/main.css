@@ -3375,6 +3375,9 @@ input, select, textarea {
     display: block;
 }
 
+.content-section-parent {
+	overflow: hidden;
+}
 /* Container to center and handle the video sizing */
 .local-video-wrapper { /*mobile first, centres the video*/
     width: 100%;   
