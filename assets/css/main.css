@@ -3388,7 +3388,7 @@ input, select, textarea {
 
 @media screen and (min-width: 600px){
 	.local-video-wrapper {
-		float: right; 
+		float: center; 
 		width: 400px;
 		margin: 0 0 1rem 2rem;
 		display: block;
