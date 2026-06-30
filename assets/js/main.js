@@ -172,3 +172,68 @@
     });
 
 })(jQuery);
+
+// Ensure our tracking variable persists across clicks and stays safe in global memory
+if (typeof window.carouselPosition === 'undefined') {
+    window.carouselPosition = 0;
+}
+
+// Global function so it can be called from anywhere, breaking template scope traps
+window.movePortfolioSlide = function(direction) {
+    // Fallbacks to grab the structural wrappers even if the template wrapped or cloned them
+    const track = document.getElementById('carouselTrack') || document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    const container = document.querySelector('.carousel-container');
+    
+    // Safety exit: print exact element trace to console if something vanished
+    if (!track || items.length === 0 || !container) {
+        console.error("Carousel Elements Missing! Track:", track, "Items:", items.length, "Container:", container);
+        return;
+    }
+
+    // Dynamic width calculation with an explicit card width fallback
+    const singleItemWidth = items[0].getBoundingClientRect().width || 350;
+    const itemWidth = singleItemWidth + 20; // Card width + flex layout gap
+    
+    const visibleWidth = container.offsetWidth - 80;
+    const totalWidth = itemWidth * items.length;
+    const maxScroll = -(totalWidth - visibleWidth - 20);
+
+    // Calculate displacement based on our persistent global variable
+    window.carouselPosition += (direction * -itemWidth);
+
+    // Hard layout boundaries
+    if (window.carouselPosition > 0) {
+        window.carouselPosition = 0; 
+    } else if (window.carouselPosition < maxScroll) {
+        window.carouselPosition = maxScroll; 
+    }
+
+    // Force style transitions directly onto the DOM element node
+    track.style.transition = "transform 0.4s ease-in-out";
+    track.style.transform = `translateX(${window.carouselPosition}px)`;
+    
+    console.log("Carousel successfully shifted to position:", window.carouselPosition);
+};
+
+// Bind directly via pure JavaScript to intercept clicks cleanly
+document.addEventListener('DOMContentLoaded', function() {
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Prevents template scripts from stealing the click
+            window.movePortfolioSlide(-1);
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation(); // Prevents template scripts from stealing the click
+            window.movePortfolioSlide(1);
+        });
+    }
+});
