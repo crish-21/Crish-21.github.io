@@ -3375,25 +3375,15 @@ input, select, textarea {
     display: block;
 }
 
-.content-section-parent {
+.content-parent {
 	overflow: hidden;
+	width: 100%;
 }
 /* Container to center and handle the video sizing */
 .local-video-wrapper { /*mobile first, centres the video*/
     width: 100%;   
 	max-width: 600px; 
     margin: 0 auto 2rem auto; 
-	box-sizing: border-box;
-	padding: 0 10px;
-}
-
-/* Force the actual video element to scale perfectly */
-.local-video-wrapper video {
-    width: 100%;
-    height: auto;                 /* Keeps the true widescreen aspect ratio shape */
-    display: block;
-    border-radius: 8px;           /* Modern rounded corners */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds premium floating depth */
 }
 
 @media screen and (min-width: 600px){
@@ -3401,8 +3391,15 @@ input, select, textarea {
 		float: right; 
 		width: 400px;
 		margin: 0 0 1rem 2rem;
-		padding: 0;
+		display: block;
 	}
+}
+
+.local-video-wrapper video {
+	width: 100%;
+	display: block;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 /* Layout section at the bottom */
 .portfolio-carousel-section {
