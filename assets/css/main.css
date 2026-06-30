@@ -3396,7 +3396,7 @@ input, select, textarea {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Adds premium floating depth */
 }
 
-@media screen and (min-width: 800px){
+@media screen and (min-width: 600px){
 	.local-video-wrapper {
 		float: right; 
 		width: 40%;
