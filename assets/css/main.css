@@ -3356,3 +3356,30 @@ input, select, textarea {
     height: auto;                /* Perfectly locks in the aspect ratio shape */
     object-fit: contain;         /* Ensures the whole image stays completely visible */
 }
+
+/* Container that handles the video position and size */
+.portfolio-video-wrapper {
+    width: 100%;                  /* Forces it to span the full width of the text column */
+    max-width: 800px;             /* Caps the size on huge monitors so it isn't overwhelming */
+    margin: 0 auto 3rem auto;     /* Centers it and creates a clean gap before your text starts */
+    aspect-ratio: 16 / 9;         /* Locks it into standard widescreen video shape */
+    border-radius: 8px;           /* Optional: Gives it clean, modern rounded corners */
+    overflow: hidden;             /* Ensures the video corners cut nicely with the border radius */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Adds a premium floating depth effect */
+}
+
+/* Forces the YouTube player to fill the wrapper box smoothly */
+.portfolio-video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Center and scale the Canva embed container smoothly across the page */
+.canva-embed-wrapper {
+    max-width: 800px !important; /* Caps the maximum slide width on wide screens */
+    width: 100% !important;      /* Ensures it shrinks cleanly on mobile devices */
+    margin-left: auto !important;  /* Centers it on the page */
+    margin-right: auto !important; /* Centers it on the page */
+    clear: both !important;        /* Prevents layout overlaps from preceding sections */
+}
