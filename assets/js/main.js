@@ -120,8 +120,18 @@
     function moveSlide(direction) {
         const track = document.getElementById('carouselTrack');
         const items = document.querySelectorAll('.carousel-item');
+
+		console.log("Track element found:", track);
+        console.log("Number of items found:", items.length);
+        if(items.length === 0) { console.error("No items found with class .carousel-item!"); return; }
+
         const itemWidth = items[0].getBoundingClientRect().width + 20; // card size + flex gap space
-        const visibleWidth = document.querySelector('.carousel-container').offsetWidth - 80;
+		const container = document.querySelector('.carousel-container');
+
+		console.log("Container element found:", container);
+        if(!container) { console.error("No container found with class .carousel-container!"); return; }
+
+        const visibleWidth = container.offsetWidth - 80;
         const totalWidth = itemWidth * items.length;
         
         // Calculate max scroll displacement boundary
@@ -137,6 +147,9 @@
             currentPosition = maxScroll; // Lock to end item card boundary
         }
 
+		console.log("Moving to position:", currentPosition); // Check if position changes
+        track.style.transform = `translateX(${currentPosition}px)`;
+		
         // Apply physical transform manipulation offset 
         track.style.transform = `translateX(${currentPosition}px)`;
     }
