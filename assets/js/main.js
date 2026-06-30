@@ -140,5 +140,15 @@
         // Apply physical transform manipulation offset 
         track.style.transform = `translateX(${currentPosition}px)`;
     }
+	// ... your existing moveSlide(direction) function code ...
+    
+    // ATTACH CLICK LISTENERS HERE (Inside the wrapper)
+    $('.prev-btn').on('click', function() {
+        moveSlide(-1);
+    });
+
+    $('.next-btn').on('click', function() {
+        moveSlide(1);
+    });
 
 })(jQuery);
