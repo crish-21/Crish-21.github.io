@@ -3378,17 +3378,15 @@ input, select, textarea {
 /* Container to center and handle the video sizing */
 .local-video-wrapper { /*mobile first, centres the video*/
     width: 100%;   
-	max-width: 600px;               /* Forces it to expand to match your page alignment */
-    margin: 0 auto 2rem auto;     /* Centers it horizontally and adds space below */
-	justify-content: center;
+	max-width: 600px; 
+    margin: 0 auto 2rem auto; 
 	box-sizing: border-box;
 	padding: 0 10px;
 }
 
 /* Force the actual video element to scale perfectly */
 .local-video-wrapper video {
-    width: 100%; 
-	max-width: 800px;                 /* Fills the 800px width dynamically */
+    width: 100%;
     height: auto;                 /* Keeps the true widescreen aspect ratio shape */
     display: block;
     border-radius: 8px;           /* Modern rounded corners */
@@ -3398,13 +3396,9 @@ input, select, textarea {
 @media screen and (min-width: 600px){
 	.local-video-wrapper {
 		float: right; 
-		width: 40%;
+		width: 400px;
 		margin: 0 0 1rem 2rem;
-		display: block;
-	}
-
-	.local-video-wrapper video {
-		max-width: 100%;
+		padding: 0;
 	}
 }
 /* Layout section at the bottom */
