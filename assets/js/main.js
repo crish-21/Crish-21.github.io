@@ -118,15 +118,20 @@
     let currentPosition = 0;
 
     function moveSlide(direction) {
-        const track = document.getElementById('carouselTrack');
+        const track = document.getElementById('carouselTrack') || document.querySelector('.carousel-track');
         const items = document.querySelectorAll('.carousel-item');
+		const container = document.querySelector('.carousel-container');
 
+		if (!track || items.length === 0 || !container) {
+            return;
+        }
+		
 		console.log("Track element found:", track);
         console.log("Number of items found:", items.length);
         if(items.length === 0) { console.error("No items found with class .carousel-item!"); return; }
 
-        const itemWidth = items[0].getBoundingClientRect().width + 20; // card size + flex gap space
-		const container = document.querySelector('.carousel-container');
+		const singleItemWidth = items[0].getBoundingClientRect().width || 350;
+        const itemWidth = singleItemWidth + 20; // card size + flex gap space
 
 		console.log("Container element found:", container);
         if(!container) { console.error("No container found with class .carousel-container!"); return; }
@@ -149,18 +154,20 @@
 
 		console.log("Moving to position:", currentPosition); // Check if position changes
         track.style.transform = `translateX(${currentPosition}px)`;
-		
-        // Apply physical transform manipulation offset 
-        track.style.transform = `translateX(${currentPosition}px)`;
+
+        track.style.transition = `transform 0.4s ease-in-out`;
+		track.style.transform = `translateX(${currentPosition}px)`;
     }
 	// ... your existing moveSlide(direction) function code ...
     
     // ATTACH CLICK LISTENERS HERE (Inside the wrapper)
-    $('.prev-btn').on('click', function() {
+    $('.prev-btn').on('click', function(e) {
+		e.preventDefault();
         moveSlide(-1);
     });
 
-    $('.next-btn').on('click', function() {
+    $('.next-btn').on('click', function(e) {
+		e.preventDefault();
         moveSlide(1);
     });
 
