@@ -3495,3 +3495,27 @@ input, select, textarea {
 		flex: 2;
 	}
 }
+
+.row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start;
+}
+
+.col-6 {
+    width: 50% !important;
+}
+
+.col-12-xsmall {
+    width: 100%;
+}
+
+@media screen and (max-width: 736px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-6 {
+        width: 100% !important;
+    }
+}
