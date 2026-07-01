@@ -3465,33 +3465,33 @@ input, select, textarea {
 .video-section {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
 	gap: 20px; 
 }
 
 .text-content, .video-content {
-	width: 100%;
+	flex: 1;
 }
 
 .local-video-wrapper video {
 	width: 100%;
 	height: auto;
-	border-radius: 8px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	display: block;
+	/*border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);*/
 }
 
 @media screen and (min-width: 600px) {
 	.video-section {
 		flex-direction: row;
 		align-items: flex-start;
+		/*gap: 2rem;*/
 	}
 
 	.text-content {
-		width: 60%;
-		padding-right: 30px;
+		flex: 3;
 	}
 
 	.video-content {
-		width: 40%;
+		flex: 2;
 	}
 }
