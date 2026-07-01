@@ -3375,33 +3375,6 @@ input, select, textarea {
     display: block;
 }
 
-.content-parent {
-	overflow: hidden;
-	width: 100%;
-}
-/* Container to center and handle the video sizing */
-.local-video-wrapper { /*mobile first, centres the video*/
-    width: 100%;   
-	max-width: 600px; 
-    margin: 0 auto 2rem auto; 
-}
-
-@media screen and (min-width: 600px){
-	.local-video-wrapper {
-		float: center; 
-		width: 400px;
-		margin: 0 0 1rem 2rem;
-		display: block;
-	}
-}
-
-.local-video-wrapper video {
-	width: 100%;
-	display: block;
-	border-radius: 8px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
 /* Layout section at the bottom */
 .portfolio-carousel-section {
     width: 100%;
@@ -3487,4 +3460,38 @@ input, select, textarea {
     .carousel-item {
         flex: 0 0 100%; /* Mobile layout shows exactly 1 at a time full-width */
     }
+}
+
+.video-section {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 20px; 
+}
+
+.text-content, .video-content {
+	width: 100%;
+}
+
+.local-video-wrapper video {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 600px) {
+	.video-section {
+		flex-direction: row;
+		align-items: flex-start;
+	}
+
+	.text-content {
+		width: 60%;
+		padding-right: 30px;
+	}
+
+	.video-content {
+		width: 40%;
+	}
 }
