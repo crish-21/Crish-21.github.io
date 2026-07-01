@@ -3381,17 +3381,9 @@ input, select, textarea {
 }
 /* Container to center and handle the video sizing */
 .local-video-wrapper { /*mobile first, centres the video*/
-    width: 400px;   
-	float: right;
-	display: block;
-    margin: 0 0 1rem 2rem; 
-}
-
-.local-video-wrapper video {
-	width: 100%;
-	display: block;
-	border-radius: 8px;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;   
+	max-width: 600px; 
+    margin: 0 auto 2rem auto; 
 }
 
 @media screen and (min-width: 600px){
@@ -3401,6 +3393,13 @@ input, select, textarea {
 		margin: 0 0 1rem 2rem;
 		display: block;
 	}
+}
+
+.local-video-wrapper video {
+	width: 100%;
+	display: block;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Layout section at the bottom */
