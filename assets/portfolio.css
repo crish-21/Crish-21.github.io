@@ -1,0 +1,244 @@
+body{
+    margin:0;
+    font-family:"Source Sans Pro",sans-serif;
+    line-height:1.7;
+    color:#555;
+    background:#fff;
+}
+
+h1,h2,h3{
+    color:#222;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+.portfolio-container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:4rem 2rem;
+}
+
+/* 1. Reset the layout so sections never stack or overlap side-by-side */
+.portfolio-section {
+    /*clear: both;        /* This stops the previous image from bleeding into this section */
+    padding-top: 2rem;    /* Gives breathing room at the top of the section */
+    padding-bottom: 2rem; /* Gives breathing room at the bottom */
+    margin-bottom: 1rem;  /* Adds spacing between sections */
+	width: 100%;          /* Ensures the section takes full width */
+}
+
+/* 2. Shrink the images inside these portfolio sections */
+.portfolio-section .image.centre {
+	float: none !important; /* Removes the float to prevent side-by-side layout */
+    display: block !important; /* image behaves like a block */
+	max-width: 600px !important; /*limits the size of the image on big screens */
+    width: 100%;
+	margin: 0 auto 2rem auto; /* Centers the image and adds space below */
+	text-align: center;
+}
+
+.portfolio-section .image img {
+    width: 100%; /*Image is stretched across the page */ 
+    height: auto; /* for maintaining aspect ratio */
+    max-height: 70vh; /* scales the height proportional to the aspect ratio */
+	object-fit: contain; /* no cropping of the image */
+	border-radius: 6px;
+}
+/* Force the text content div to break clean and span the entire width */
+.portfolio-section .content,
+.portfolio-section div:not(.image) {
+    display: block !important;
+    width: 100% !important;
+    /*clear: both; !important;*/
+    float: none !important;
+}
+
+/* Force standard lists, bullet containers, and paragraphs to occupy the full page width */
+.portfolio-section p,
+.portfolio-section ul,
+.portfolio-section ol {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    /*clear: both; !important;*/
+    float: none !important;
+    padding-left: 20px !important; /* Retains clean bullet alignment */
+    margin-left: 0 !important;     /* Removes any residual left margin pushing it into a column */
+}
+
+/* Ensure individual list items break line constraints and expand horizontally */
+.portfolio-section li {
+    display: list-item !important; /* Keeps bullet points active */
+    width: 100% !important;
+    max-width: 100% !important;
+    float: none !important;
+    /*clear: both; !important;*/
+    margin-bottom: 12px;
+}
+
+/* 1. Shrink the outer container box for just this one image */
+.portfolio-section .image.small-image {
+    max-width: 350px !important; /* Set this to whatever small width you want */
+    width: 100%;
+    margin: 0 auto 2rem auto;    /* Keeps it centered with nice spacing below */
+}
+
+/* 2. Tell the image inside it to fit perfectly within that smaller box */
+.portfolio-section .image.small-image img {
+    width: 100%;                 /* Scales down to fill the 350px container */
+    height: auto;                /* Perfectly locks in the aspect ratio shape */
+    object-fit: contain;         /* Ensures the whole image stays completely visible */
+}
+
+/* Container that handles the video position and size */
+.portfolio-video-wrapper {
+    width: 100%;                  /* Forces it to span the full width of the text column */
+    max-width: 800px;             /* Caps the size on huge monitors so it isn't overwhelming */
+    margin: 0 auto 3rem auto;     /* Centers it and creates a clean gap before your text starts */
+    aspect-ratio: 16 / 9;         /* Locks it into standard widescreen video shape */
+    border-radius: 8px;           /* Optional: Gives it clean, modern rounded corners */
+    overflow: hidden;             /* Ensures the video corners cut nicely with the border radius */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Adds a premium floating depth effect */
+}
+
+/* Forces the YouTube player to fill the wrapper box smoothly */
+.portfolio-video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Layout section at the bottom */
+.portfolio-carousel-section {
+    width: 100%;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee; /* Creates a clean section break line */
+    /*clear: both;*/
+}
+
+/* Outer boundary window wrapper */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Adjust to match your container's grid max width */
+    margin: 0 auto;
+    overflow: hidden;  /* Crops out the elements positioned off-screen */
+    padding: 0 40px;   /* Creates safety padding so side arrows don't clip text */
+    box-sizing: border-box;
+}
+
+/* The actual scrolling moving belt strip */
+.carousel-track {
+    display: flex;
+    gap: 20px; 
+	width: max-content;        /* Uniform space gap between presentation columns */
+    transition: transform 0.4s ease-in-out; /* Makes slide transitions look buttery smooth */
+    scroll-behavior: smooth;
+	will-change: transform; 
+}
+
+
+
+/* Individual Slide Sizing */
+.carousel-item {
+    /* calculation means: 3 presentation cards fit on the screen at a time */
+    flex: 0 0 calc(33.333% - 14px); 
+    min-width: 280px;  /* Prevents total distortion on mobile layouts */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.carousel-item h3 {
+    margin-top: 0.8rem;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Navigation Arrow Settings */
+.carousel-btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+	border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn { left: 5px; }
+.next-btn { right: 5px; }
+
+/* Responsive Media Query for smaller screens/laptops */
+@media (max-width: 900px) {
+    .carousel-item {
+        flex: 0 0 calc(50% - 10px); /* Drops smoothly down to showing 2 at a time */
+    }
+}
+@media (max-width: 600px) {
+    .carousel-item {
+        flex: 0 0 100%; /* Mobile layout shows exactly 1 at a time full-width */
+    }
+}
+
+.video-section {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+    align-items: flex-start;
+    margin-top: 2rem; 
+}
+
+.video-content {
+	flex: 2;
+    width: 100%;
+}
+
+.text-content {
+    flex: 3;
+    width: 100%;
+}
+
+.local-video-wrapper {
+    width: 100%;
+}
+
+.local-video-wrapper video {
+	width: 100%;
+	height: auto;
+	display: block;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (min-width: 600px) {
+	.video-section {
+		flex-direction: row;
+		/*align-items: flex-start;
+		gap: 2rem;*/
+	}
+
+	.text-content {
+		flex: 3;
+	}
+
+	.video-content {
+		flex: 2;
+	}
+}
