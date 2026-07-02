@@ -22,7 +22,7 @@ h1,h2,h3{
 
 /* 1. Reset the layout so sections never stack or overlap side-by-side */
 .portfolio-section {
-    /*clear: both;        /* This stops the previous image from bleeding into this section */
+    /*clear: both;         This stops the previous image from bleeding into this section */
     padding-top: 2rem;    /* Gives breathing room at the top of the section */
     padding-bottom: 2rem; /* Gives breathing room at the bottom */
     margin-bottom: 1rem;  /* Adds spacing between sections */
