@@ -3399,7 +3399,7 @@ input, select, textarea {
 .carousel-track {
     display: flex;
     gap: 20px; 
-	width: max-content;        /* Uniform space gap between presentation columns */
+	width: 100%;        /* max-contentUniform space gap between presentation columns */
     transition: transform 0.4s ease-in-out; /* Makes slide transitions look buttery smooth */
     scroll-behavior: smooth;
 	will-change: transform; 
@@ -3410,8 +3410,8 @@ input, select, textarea {
 /* Individual Slide Sizing */
 .carousel-item {
     /* calculation means: 3 presentation cards fit on the screen at a time */
-    flex: 0 0 calc(33.333% - 14px); 
-    min-width: 280px;  /* Prevents total distortion on mobile layouts */
+    flex: 0 0 calc((100% - 14px) / 3); 
+    min-width: 0;  /*280px Prevents total distortion on mobile layouts */
     box-sizing: border-box;
     text-align: center;
 }
@@ -3453,13 +3453,21 @@ input, select, textarea {
 /* Responsive Media Query for smaller screens/laptops */
 @media (max-width: 900px) {
     .carousel-item {
-        flex: 0 0 calc(50% - 10px); /* Drops smoothly down to showing 2 at a time */
+        flex: 0 0 calc((100% - 10px) / 2); /* Drops smoothly down to showing 2 at a time */
     }
 }
 @media (max-width: 600px) {
     .carousel-item {
         flex: 0 0 100%; /* Mobile layout shows exactly 1 at a time full-width */
     }
+
+	.carousel-track {
+		gap: 10px;
+	}
+
+	.carousel-container {
+		padding: 0 10px;
+	}
 }
 
 .video-section {
